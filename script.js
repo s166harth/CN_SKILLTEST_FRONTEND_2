@@ -146,10 +146,13 @@ function movieinfo () {
 var movierender = (data) =>{
     document.getElementsByClassName("movie-title")[0].innerText = `${data.Title}`;
     document.getElementsByClassName("plot")[0].innerText = `${data.Plot}`;
-    document.getElementsByClassName("rating")[0].innerText = `${data.imdbRating}`;
+    document.getElementsByClassName("rating")[0].innerText = `Rating:${data.imdbRating}`;
     document.getElementsByClassName("poster")[0].src = `${data.Poster}`
 
 
+}
+var back = () =>{
+    document.getElementsByClassName("movieinfo")[0].style.display = 'none';
 }
 
 

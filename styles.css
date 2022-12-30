@@ -201,8 +201,13 @@ h1{
 }
 .movieinfo {
     display: none;
+    flex-wrap: wrap;
     margin: auto;
     justify-content: center;
     color: #f2f2f2;
     
+}
+.movieinfo i{
+    color: #f7ef0b;
+    font-size: 4rem;
 }
