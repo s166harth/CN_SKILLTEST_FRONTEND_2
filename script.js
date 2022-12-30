@@ -128,19 +128,29 @@ function autocomplete(inp, arr) {
 document.addEventListener("click", function (e) {
     closeAllLists(e.target);
 });
-} 
+}
 
-var textexport = inp.value;
-var movieinfo = () => {
-    var text = inp.value;
- fetch(`http://www.omdbapi.com/?apikey=9f61efad&t=${text}`).then(response =>{
+
+function movieinfo () {
+    var title = inp.value;
+ fetch(`http://www.omdbapi.com/?apikey=9f61efad&t=${title}`).then(response =>{
     return response.json();
 }).then(data =>{
     console.log(data);
-    
+    document.getElementsByClassName("movieinfo")[0].style.display = 'flex';
+    movierender(data);
 })  
 }
 
+
+var movierender = (data) =>{
+    document.getElementsByClassName("movie-title")[0].innerText = `${data.Title}`;
+    document.getElementsByClassName("plot")[0].innerText = `${data.Plot}`;
+    document.getElementsByClassName("rating")[0].innerText = `${data.imdbRating}`;
+    document.getElementsByClassName("poster")[0].src = `${data.Poster}`
+
+
+}
 
 
 

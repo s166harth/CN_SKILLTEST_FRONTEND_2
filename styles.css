@@ -199,3 +199,10 @@ h1{
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+.movieinfo {
+    display: none;
+    margin: auto;
+    justify-content: center;
+    color: #f2f2f2;
+    
+}

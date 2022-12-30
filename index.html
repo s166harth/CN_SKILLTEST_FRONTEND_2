@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMDB</title>
+    <title>IMDb sid</title>
     
     <link rel="stylesheet" href="./styles.css">
 </head>
@@ -14,13 +14,31 @@
         <div class="searchbox">
             
         <input type="text" id="searchbox" placeholder="Search" onkeydown="searchfunc(this.value)" >
-         <a href="/movie.html"> <i class="fa-solid fa-magnifying-glass" onclick="movieinfo()"></i>  </a>
+          <i class="fa-solid fa-magnifying-glass" onclick="movieinfo()"></i>
 
     </div>
 
         <a href="#">login</a>
         <a href="#"><i class="fa-solid fa-bookmark"></i>watchlist</a>
     </nav>
+
+    
+    <div class="movieinfo">
+        <img src="404.png" class="poster">
+        <div class="info">
+            <h1 class="movie-title">Title</h1>
+            <p class="plot">hello</p>
+            <h2 class="rating">10</h2>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
 <div class="top-panel">
    <div class="slideshow-container">
 
@@ -87,7 +105,7 @@ Watch Mr.Robot</h2>
 
 </div>
 </div>
-
+<div onclick="movieinfo()">hello</div>
 
 
 
