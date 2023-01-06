@@ -155,7 +155,28 @@ var back = () =>{
     document.getElementsByClassName("movieinfo")[0].style.display = 'none';
 }
 
+var buffer = JSON.parse(localStorage.getItem(favouriteslist));
+if(buffer==null){
+  var favouriteslist = [];
+}
+else{
+  var favouriteslist = buffer;
+}
+var favourites = () =>{
+  
+   var title =  document.getElementsByClassName("movie-title")[0].innerText;
+   var plot = document.getElementsByClassName("plot")[0].innerText;
 
+  var movie = {
+    title: title,
+    plot: plot
+
+  }
+
+  favouriteslist.push(movie);
+  localStorage.setItem('favouriteslist',favouriteslist);
+   console.log(favouriteslist);
+}
 
 
 
