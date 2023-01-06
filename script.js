@@ -148,11 +148,12 @@ var movierender = (data) =>{
     document.getElementsByClassName("plot")[0].innerText = `${data.Plot}`;
     document.getElementsByClassName("rating")[0].innerText = `Rating:${data.imdbRating}`;
     document.getElementsByClassName("poster")[0].src = `${data.Poster}`
-
+    document.getElementsByClassName("bookmarkicon")[0].style.display = '';
 
 }
 var back = () =>{
     document.getElementsByClassName("movieinfo")[0].style.display = 'none';
+    document.getElementsByClassName("favourites")[0].style.display = 'none';
 }
 
 var buffer = JSON.parse(localStorage.getItem(favouriteslist));
@@ -166,16 +167,42 @@ var favourites = () =>{
   
    var title =  document.getElementsByClassName("movie-title")[0].innerText;
    var plot = document.getElementsByClassName("plot")[0].innerText;
+   var poster =   document.getElementsByClassName("poster")[0].src
 
+ 
   var movie = {
     title: title,
-    plot: plot
-
+    plot: plot,
+    poster: poster
   }
 
   favouriteslist.push(movie);
   localStorage.setItem('favouriteslist',favouriteslist);
    console.log(favouriteslist);
+   document.getElementsByClassName("bookmarkicon")[0].style.display = 'none';
+   alert("movie added");
+}
+
+var renderfavourite = () =>{
+  var elem = document.getElementsByClassName("favourites")[0];
+  elem.style.display = "flex";
+  for(var i=0;i<favouriteslist.length;i++)
+  {
+   var element = document.getElementsByClassName("moviecontainer")[0];
+   element.innerHTML += 
+    `
+     <div class="movie">
+                <img src="${favouriteslist[i].poster}" alt="" class="poster">
+                <p class="title">${favouriteslist[i].title}</p>
+                <i class="fa-solid fa-x" onclick="deleteitem(this)"></i>
+            </div>
+
+    `
+
+  }
+}
+const deleteitem = (elem) =>{
+  elem.parentElement.style.display = "none";
 }
 
 

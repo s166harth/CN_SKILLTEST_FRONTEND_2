@@ -340,3 +340,28 @@ h1{
     }
 
 }
+
+.favourites{
+  margin: 3rem;
+  display: none;
+}
+.movie{
+  display: flex;
+  padding: 3rem;
+  flex-wrap: wrap;
+}
+.movie img{
+  height: 100px;
+  width: 30px;
+  padding: 3rem;
+}
+.movie i{
+  font-size: 2rem;
+  color: #f7ef0b;
+  margin-left: 10rem;
+  margin-top: 2rem;
+}
+.movie p{
+  color: aliceblue;
+  font-size: 3rem;
+}
