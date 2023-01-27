@@ -32,9 +32,10 @@ var list_movies = {};
 var inp = document.getElementById("searchbox");
 var searchfunc = (searchtext)=>{
 
-fetch(`http://www.omdbapi.com/?apikey=9f61efad&s=${searchtext}`).then(response =>{
+fetch(`https://www.omdbapi.com/?apikey=9f61efad&s=${searchtext}&page=1`).then(response =>{
     return response.json();
 }).then(data =>{
+  console.log(data);
     list_movies = data.Search;
    autocomplete(inp,list_movies); 
 })
@@ -59,6 +60,7 @@ function autocomplete(inp, arr) {
         /*check if the item starts with the same letters as the text field value:*/
           /*create a DIV element for each matching element:*/
           b = document.createElement("DIV");
+          
           /*make the matching letters bold:*/
           b.innerHTML = "<strong>" + arr[i].Title.substr(0, val.length) + "</strong>";
           b.innerHTML += arr[i].Title.substr(val.length);
@@ -133,7 +135,7 @@ document.addEventListener("click", function (e) {
 
 function movieinfo () {
     var title = inp.value;
- fetch(`http://www.omdbapi.com/?apikey=9f61efad&t=${title}`).then(response =>{
+ fetch(`https://www.omdbapi.com/?apikey=9f61efad&t=${title}`).then(response =>{
     return response.json();
 }).then(data =>{
     console.log(data);
@@ -202,7 +204,13 @@ var renderfavourite = () =>{
   }
 }
 const deleteitem = (elem) =>{
-  elem.parentElement.style.display = "none";
+  
+  elem.parentElement.className= "hidden";
+  const title = elem.parentElement.getElementsByClassName('title')[0].innerText;
+  console.log(title);
+  favouriteslist = favouriteslist.filter(function(item) {
+    return item.title !== title;
+})
 }
 
 
